@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "my-reactive-form-c3f5d": {
+      "hosting": {
+        "my-dynamicform": [
+          "my-reactive-form-c3f5d"
+        ]
+      }
+    }
+  }
+}

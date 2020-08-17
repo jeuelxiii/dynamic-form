@@ -1,0 +1,140 @@
+<div class="container-fluid my-3">
+    <form [formGroup]="profileForm">
+        <!-- <div class="cross-validation" [class.cross-validation-error]="profileForm.errors? (profileForm.touched || profileForm.dirty)"> -->
+    
+
+                <div class="row d-flex justify-content-center">
+           
+                    <div class="col-md-5 border border-info mx-2 mb-2 bg-info text-white" id="basic-info">
+                        <h3>What is your name?</h3>
+                        <div class="row my-2">
+                            <div class="col-sm-6">
+                                <label for="" class="mx-2">First Name: </label>
+                                <input type="text" formControlName="firstName" id="first-name" class="name mx-2">
+                                <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+                                    <p class="error help is-danger" *ngIf="firstName.errors.required">
+                                      *First name is required.
+                                    </p>
+                                  </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="" class="mx-2">Last Name: </label>
+                                <input type="text" formControlName="lastName" id="last-name" class="name mx-2">
+                                <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+                                    <p class="error help is-danger" *ngIf="lastName.errors.required">
+                                      *Last name is required.
+                                    </p>
+                                  </div>
+                            </div>
+                        </div>
+                        <h3>Where do you live?</h3>
+                        <div formGroupName="address">
+                            <div class="row my-2">
+                                <div class="col-sm-12">
+                                    <label for="" class="ml-2">Address line 1: </label>
+                                    <input type="text" formControlName="address1" class="text-bar mx-2" id="address1">
+                                </div>
+                            </div>
+                            <div class="row my-2">
+                                <div class="col-sm-12">
+                                    <label for="" class="ml-2">Address line 2: </label>
+                                    <input type="text" formControlName="address2" class="text-bar mx-2" id="address2">
+                                </div>
+                            </div>
+        
+        
+        
+                            <div class="row mb-2">
+                                <div class="col-sm-4">
+                                    <label for="" class="mx-2">City: </label>
+                                    <input type="text" formControlName="city" class="place ml-2" id="city">
+                                </div>
+                                <div class="col-sm-5">
+                                    <label for="" class="mx-2">Country: </label>
+                                    <input type="text" formControlName="country" class="place ml-2" id="country">
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="" class="mx-2">Zip: </label>
+                                    <input type="text" formControlName="zip" class="zip ml-2" id="zip">
+                                </div>
+        
+                            </div>
+        
+                        </div>
+                        <h3>Tell me something more..</h3>
+                        <div formGroupName="birthday">
+                            <div class="row my-2">
+                                <div class="col-sm-12">
+                                    <label for="" class="mx-2">Birthday: </label>
+                                    <input type="text" formControlName="month" class="birthday" id="month" placeholder="MM">/
+                                    <input type="text" formControlName="day" class="birthday" id="day" placeholder="DD">/
+                                    <input type="text" formControlName="year" class="birthday" id="year" placeholder="YYYY">
+ 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                    <label for="" class="mx-2">Gender: </label>
+                                    <input type="radio" formControlName="gender" name="gender" class="gender" id="gender"
+                                        value="male">
+                                    <label for="" class="mx-2">Male </label>
+                                <input type="radio" formControlName="gender" name="gender" class="gender" id="gender"
+                                    value="female">
+                                <label for="" class="mx-2">Female </label>
+                            </div>
+                        </div>
+                         
+                            
+                       
+        
+                        <h3>Educational Attainment</h3>
+                        <div class="row my-2">
+                            <div class="col-sm-12">
+                                <label for="" class="ml-2">High School: </label>
+        
+                                <input type="text" formControlName="highschool" class="school mx-2" id="highschool">
+                            </div>
+                        </div>
+        
+                        <div class="row my-2">
+                            <div class="col-sm-12">
+                                <label for="" class="ml-2">College: </label>
+                                <input type="text" formControlName="college" class="school mx-2" id="college">
+                            </div>
+                        </div>
+        
+                    </div>
+        
+                    <div class="col-md-5 border border-info bg-info text-white mx-2" id="educ">
+        
+                        <h3>Skills: </h3>
+                        <div class="row my-2">
+                            <div class="col-sm">
+        
+                                <div formArrayName="skills">
+                                    <button class="btn btn-light" (click)="addSkills()">Add</button>
+                                    <div *ngFor="let control of skills.controls; index as i" class="my-2">
+                                        <input [formControl]="skills.controls[i]" />
+                                        <button class="btn btn-danger border border-dark" (click)="removeSkill(i)">X</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="row my-2">
+                            <div class="col-sm">
+        
+                                <button type="submit" (click)="onSubmit()" class="btn btn-light" [disabled]="!profileForm.valid">Submit</button>
+        
+                            </div>
+                        </div>
+        
+        
+                    </div>
+        
+                </div>
+
+    <!-- </div> -->
+    </form>
+</div>

@@ -1,0 +1,59 @@
+h3{
+    text-shadow: 1px 1px black;
+}
+
+.name{
+    width: 80%;
+}
+
+.text-bar{
+    width: 95%;
+}
+
+.place{
+    width: 95%;
+}
+
+.zip{
+    width: 70%;
+}
+
+.school{
+    width: 95%;
+}
+
+#basic-info{
+    border-radius: 10px;
+}
+
+#educ{
+    border-radius: 10px;
+}
+
+input{
+    border-radius: 5px;
+}
+
+.birthday{
+    width: 6%;
+}
+
+#year{
+    width: 8%;
+}
+
+  .ng-valid .name {
+    border-left: 10px solid #42A948; /* green */
+  }
+  
+  .ng-invalid:not(form)  {
+    border-left: 10px solid #a94442; /* red */
+  }
+
+.error{
+    font-weight: 600;
+    margin-top: 5px;
+    color: #a94442;
+}
+
+@import '~ngx-toastr/toastr';
